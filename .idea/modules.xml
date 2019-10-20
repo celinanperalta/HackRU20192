@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Inspirpy.iml" filepath="$PROJECT_DIR$/.idea/Inspirpy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpotimatchPy.iml" filepath="$PROJECT_DIR$/.idea/SpotimatchPy.iml" />
     </modules>
   </component>
 </project>
