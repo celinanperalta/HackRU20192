@@ -1,0 +1,54 @@
+.canvas-container {
+    float: right;
+    width:680px !important;
+    height:350px !important;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+
+    ul {
+    display: flex;
+    padding-left: 0;
+    }
+
+  .btn.submit {
+    padding: 10px 30px;
+    font-size: 16px;
+    border: none;
+    color: #fff;
+    background: #2bcbe2;
+    border-radius: 4%;
+  }
+
+  .btn.refresh {
+    position: absolute;
+    top: 26.5%;
+    left: 16%;
+    padding: 10px 30px;
+    background: gray;
+    padding: 10px 10px;
+    border-radius: 4%;
+    text-decoration: none;
+    color: wheat;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-top: 31px;
+  }
+
+  table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  table th {
+    background-color: #2bcbe2;
+    color: #fff;
+  }
+
+  table tr:hover {
+    background-color: #ddd;
+    }
