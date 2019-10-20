@@ -6,9 +6,11 @@ from config import *
 
 class SpotifyController:
 
-    def __init__(self, username):
+
+    def authenticate(self, username):
         self.username = username
         token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
+        print(token)
         if token:
             self.sp = spotipy.Spotify(token)
         else:
