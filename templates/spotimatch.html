@@ -16,14 +16,13 @@
     <h1>User Lookup</h1>
     <form id="playlist-form">
         Username: {{form.username}}
-        <fieldset>
-            <legend>Filters</legend>
-            {{form.features}}
-        </fieldset>
-        {{ form.hidden_tag() }}
-        <input type="submit" value="Search"/>
-    </form>
 
+           <!--  <legend>Filters</legend> -->
+            {{form.features}}
+       
+        {{ form.hidden_tag() }}
+        <input class="btn submit" type="submit" value="Search"/>
+    </form>
     <div id="playlist-display">
         <table>
             <tr id="table-header">
