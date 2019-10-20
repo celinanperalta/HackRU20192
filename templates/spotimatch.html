@@ -13,10 +13,13 @@
 <body>
     <!--<p>{{profile[0]}}</p>-->
     <!--<p>{{profile[1]}}</p>-->
-
+    <h1>User Lookup</h1>
     <form id="playlist-form">
-        {{form.username}}
-        {{form.features}}
+        Username: {{form.username}}
+        <fieldset>
+            <legend>Filters</legend>
+            {{form.features}}
+        </fieldset>
         {{ form.hidden_tag() }}
         <input type="submit" value="Search"/>
     </form>
@@ -33,54 +36,57 @@
      </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-var ctx = document.getElementById('myChart').getContext('2d');
-// ctx.canvas.width = 100;
-// ctx.canvas.height = 200;
-var chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        {{user_features}},
-        datasets: [{
-            label: 'Value',
-            {{avg_features}},
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    // ctx.canvas.width = 100;
+    // ctx.canvas.height = 200;
+    var af = {{ avg_features|tojson }};
+    af = af.substring(1,af.length-1).split(",").map(function(x){return Math.abs(Number(x))});
+    af[1] = af[1] / 60;
+    af[6] = af[6] / 225;
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["danceability", "loudness", "speechiness", "acousticness", "instrumentalness", "energy", "tempo"],
+            datasets: [{
+                label: 'Value',
+                data: af,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
             }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
         }
-    }
-});
+    });
 });
 </script>
-
-
-<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('form').submit(function (e) {
