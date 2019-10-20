@@ -7,14 +7,30 @@ from config import *
 class SpotifyController:
 
 
+
     def authenticate(self, username):
         self.username = username
         token = util.prompt_for_user_token(username, scope, client_id, client_secret, redirect_uri)
         print(token)
         if token:
             self.sp = spotipy.Spotify(token)
+            self.sp = spotipy.Spotify(token)
+
+            return 1
         else:
             print("Can't get token for", username)
+            return 0
+
+    def authenticate_token(self, token):
+        print(token)
+        if token:
+            self.sp = spotipy.Spotify(token)
+            self.user_profile = self.get_current_user_music_profile()
+            return 1
+        else:
+            print("Error")
+            return 0
+
 
     def get_api(self):
         return self.sp
@@ -69,3 +85,10 @@ class SpotifyController:
                 else:
                     genres[g] = 1
         return genres
+
+    def get_playlist_features(self, playlist):
+        tracks = [x for x in self.sp.user_playlist_tracks(playlist,limit=30)['items']]
+        print(tracks)
+        track_ids = [x['id'] for x in tracks]
+        return self.get_track_list_features(track_ids)
+
