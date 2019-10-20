@@ -5,6 +5,8 @@ from wtforms import StringField, SelectMultipleField
 from wtforms.widgets import ListWidget, CheckboxInput
 from config import *
 from SpotifyController import SpotifyController, RANGES, USER_FEATURES
+import json
+
 
 app = Flask(__name__)
 
@@ -74,7 +76,7 @@ def spotimatch():
     # print(spc.get_currently_playing())
     # print(spc.get_top_artists())
     form = PlaylistForm()
-    return render_template('spotimatch.html', profile=spc.user_profile, form=form, user_features=jsonify(data=USER_FEATURES), avg_features=jsonify(labels=spc.avg_features))
+    return render_template('spotimatch.html', profile=spc.user_profile, form=form, user_features=json.dumps(USER_FEATURES), avg_features=json.dumps(list(spc.avg_features.values())))
 
 @app.route('/update_playlists', methods=['POST'])
 def update_playlists():
