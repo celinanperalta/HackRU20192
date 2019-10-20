@@ -2,6 +2,7 @@ from flask import *
 from flask_oauthlib.client import OAuth, OAuthException
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectMultipleField
+from wtforms.widgets import ListWidget, CheckboxInput
 from config import *
 from SpotifyController import SpotifyController
 
@@ -33,9 +34,13 @@ spotify = oauth.remote_app(
 
 FEATURES = [(x,x) for x in ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']]
 
+class MultiCheckboxField(SelectMultipleField):
+    widget          = ListWidget(prefix_label=False)
+    option_widget   = CheckboxInput()
+
 class PlaylistForm(FlaskForm):
     username = StringField('username')
-    features = SelectMultipleField("Features", choices=FEATURES)
+    features = MultiCheckboxField("Features", choices=FEATURES)
 
 
 @app.route('/')
@@ -85,6 +90,19 @@ def update_playlists():
     #todo: split page into two parts to render separately
     return jsonify(data=form.errors)
 
+RANGES = {
+    'danceability' : 1,
+    'loudness' : 60,
+    'speechiness' : 1,
+    'acousticness' : 1,
+    'instrumentalness' : 1,
+    'tempo' : 225
+}
+def score(avg_features, playlist_features, filters):
+    s = 0
+    for filter in filters:
+        s += (1-(Math.abs(avg_features[filter]-playlist_features[filter]))/RANGES[filter])*100/filters.length
+    return s
 
 @spotify.tokengetter
 def get_spotify_oauth_token():
