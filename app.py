@@ -19,7 +19,7 @@ def index():
 
 @app.route('/login')
 def login():
-    pass
+    return redirect('/spotimatch')
 
 @app.route('/callback')
 def callback():
@@ -27,9 +27,10 @@ def callback():
 
 @app.route('/spotimatch', methods=["GET", "POST"])
 def spotimatch():
-    print(spc.get_currently_playing())
-    print(spc.get_top_artists())
-    print(spc.get_top_tracks())
+    # print(spc.get_currently_playing())
+    # print(spc.get_top_artists())
+    print(spc.get_artist_list_features())
+    print(spc.get_track_list_features())
     return render_template('spotimatch.html')
 
 
