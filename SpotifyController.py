@@ -87,8 +87,8 @@ class SpotifyController:
         return genres
 
     def get_playlist_features(self, playlist):
-        tracks = [x for x in self.sp.user_playlist_tracks(playlist,limit=30)['items']]
-        print(tracks)
+        tracks = [x['track'] for x in self.sp.user_playlist_tracks(playlist,limit=30)['items']]
         track_ids = [x['id'] for x in tracks]
-        return self.get_track_list_features(track_ids)
+        track_features = self.get_track_list_features(track_ids)
+        return track_features
 
