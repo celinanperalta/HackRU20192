@@ -32,6 +32,7 @@ spotify = oauth.remote_app(
     authorize_url='https://accounts.spotify.com/authorize'
 )
 
+USER_FEATURES = ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']
 FEATURES = [(x,x) for x in ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']]
 RANGES = {
     'danceability' : 1,
@@ -82,7 +83,7 @@ def spotimatch():
     # print(spc.get_currently_playing())
     # print(spc.get_top_artists())
     form = PlaylistForm()
-    return render_template('spotimatch.html', profile=spc.user_profile, form=form)
+    return render_template('spotimatch.html', profile=spc.user_profile, form=form, user_features=jsonify(data=USER_FEATURES), avg_features=jsonify(labels=spc.avg_features))
 
 @app.route('/update_playlists', methods=['POST'])
 def update_playlists():
