@@ -39,8 +39,10 @@ RANGES = {
     'speechiness' : 1,
     'acousticness' : 1,
     'instrumentalness' : 1,
+    'energy' : 1,
     'tempo' : 225
 }
+
 
 class MultiCheckboxField(SelectMultipleField):
     widget          = ListWidget(prefix_label=False)
@@ -87,12 +89,35 @@ def update_playlists():
     form = PlaylistForm()
 
     if form.validate_on_submit():
+
         playlists = spc.get_api().user_playlists(form.username.data, 10, 0)
+        filters = form.features.data
         playlist_names = [x['name'] for x in playlists['items']]
         playlist_ids = [x['id'] for x in playlists['items']]
-        data = [spc.get_playlist_features(x, form.features.data) for x in playlist_ids]
+        playlist_urls = [x['external_urls']['spotify'] for x in playlists['items']]
+        playlist_features = [spc.get_playlist_features(x, filters) for x in playlist_ids]
 
-        return str(data)
+        scores = {}
+        urls = {}
+
+        for i in range(0, len(playlist_features)):
+            scores[playlist_names[i]] = score(spc.avg_features, playlist_features[i], filters)
+            urls[playlist_names[i]] = playlist_urls[i]
+
+        scores = dict(sorted(scores.items(), key = lambda kv:(kv[1], kv[0]), reverse=True))
+        score_keys = list(scores.keys())
+
+        print(scores)
+
+        html = '<table><thead><th>Playlist</th><th>Score</th></thead>'
+
+
+        for i in range(0, len(scores)):
+            html += '<tr><td><a href="' + urls[score_keys[i]] + '">' + score_keys[i] + '</a></td><td>' + str(scores[score_keys[i]]) + '</td></tr>'
+
+        html += '</table>'
+
+        return html
 
     #todo: split page into two parts to render separately
     return jsonify(data=form.errors)
@@ -101,7 +126,7 @@ def update_playlists():
 def score(avg_features, playlist_features, filters):
     s = 0
     for filter in filters:
-        s += (1-(abs(avg_features[filter]-playlist_features[filter]))/RANGES[filter])*100/filters.length
+        s += (1-(abs(avg_features[filter]-playlist_features[filter]))/RANGES[filter])*100/len(filters)
     return s
 
 @spotify.tokengetter

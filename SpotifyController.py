@@ -51,8 +51,11 @@ class SpotifyController:
         top_tracks = self.get_top_tracks()
         top_artists = self.get_top_artists()
 
-        tracks = self.get_track_list_features(top_tracks)
+        tracks = self.get_track_list_features(top_tracks, ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo'])
         genres = self.get_artist_list_features(top_artists)
+
+        self.avg_features = tracks
+        self.top_genres = genres
 
         return [tracks, genres]
 
