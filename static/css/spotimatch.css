@@ -6,6 +6,8 @@
 
   ul li {
     list-style-type: none;
+    font-weight: normal;
+    padding: 10px;
   }
 
     ul {
