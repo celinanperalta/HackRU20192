@@ -33,6 +33,14 @@ spotify = oauth.remote_app(
 )
 
 FEATURES = [(x,x) for x in ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']]
+RANGES = {
+    'danceability' : 1,
+    'loudness' : 60,
+    'speechiness' : 1,
+    'acousticness' : 1,
+    'instrumentalness' : 1,
+    'tempo' : 225
+}
 
 class MultiCheckboxField(SelectMultipleField):
     widget          = ListWidget(prefix_label=False)
@@ -41,7 +49,6 @@ class MultiCheckboxField(SelectMultipleField):
 class PlaylistForm(FlaskForm):
     username = StringField('username')
     features = MultiCheckboxField("Features", choices=FEATURES)
-
 
 @app.route('/')
 def index():
@@ -83,21 +90,14 @@ def update_playlists():
         playlists = spc.get_api().user_playlists(form.username.data, 10, 0)
         playlist_names = [x['name'] for x in playlists['items']]
         playlist_ids = [x['id'] for x in playlists['items']]
-        data = [spc.get_playlist_features(x) for x in playlist_ids]
+        data = [spc.get_playlist_features(x, form.features.data) for x in playlist_ids]
 
         return str(data)
 
     #todo: split page into two parts to render separately
     return jsonify(data=form.errors)
 
-RANGES = {
-    'danceability' : 1,
-    'loudness' : 60,
-    'speechiness' : 1,
-    'acousticness' : 1,
-    'instrumentalness' : 1,
-    'tempo' : 225
-}
+
 def score(avg_features, playlist_features, filters):
     s = 0
     for filter in filters:

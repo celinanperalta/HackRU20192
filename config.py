@@ -5,4 +5,4 @@ client_id = "982243b446934433acdf3ced48c00805"
 client_secret = "756e691c92f541bdb731dfbe11a606b2"
 redirect_uri = "http://127.0.0.1:3000/callback"
 scope = "user-top-read user-read-playback-state playlist-read-private"
-cache = '.spotipyoauthcache'
+cache = None

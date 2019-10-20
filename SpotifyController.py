@@ -56,17 +56,10 @@ class SpotifyController:
 
         return [tracks, genres]
 
-    def get_track_list_features(self, tracks):
-        keys = ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']
-        avg_features = {
-            'danceability' : 0.0,
-            'loudness': 0.0,
-            'speechiness': 0.0,
-            'acousticness' : 0.0,
-            'instrumentalness' : 0.0,
-            'energy': 0.0,
-            'tempo' : 0.0
-        }
+    def get_track_list_features(self, tracks, keys):
+        avg_features = {}
+        for x in keys:
+            avg_features[x] = 0.0
         features = self.sp.audio_features(tracks)
         for arr in features:
             for x in keys:
@@ -103,9 +96,9 @@ class SpotifyController:
                          limit=limit, offset=offset, fields=fields,
                          market=market)
 
-    def get_playlist_features(self, playlist):
+    def get_playlist_features(self, playlist, features):
         tracks = [x['track'] for x in self.user_playlist_tracks(playlist,limit=30)['items']]
         track_ids = [x['id'] for x in tracks]
-        track_features = self.get_track_list_features(track_ids)
+        track_features = self.get_track_list_features(track_ids, features)
         return track_features
 
