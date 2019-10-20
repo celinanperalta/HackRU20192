@@ -48,7 +48,6 @@ def login():
     callback = redirect_uri
     return spotify.authorize(callback=callback)
 
-
 @app.route('/callback')
 def spotify_authorized():
     resp = spotify.authorized_response()
@@ -74,6 +73,7 @@ def spotimatch():
 @app.route('/update_playlists', methods=['POST'])
 def update_playlists():
     form = PlaylistForm()
+
     if form.validate_on_submit():
         playlists = spc.get_api().user_playlists(form.username.data, 10, 0)
         playlist_names = [x['name'] for x in playlists['items']]

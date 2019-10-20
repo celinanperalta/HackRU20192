@@ -84,10 +84,27 @@ class SpotifyController:
                     genres[g] += 1
                 else:
                     genres[g] = 1
-        return genres
+        return sorted(genres.items(), key = lambda kv:(kv[1], kv[0]), reverse=True)
+
+    def user_playlist_tracks(self, playlist_id=None, fields=None,
+                             limit=100, offset=0, market=None):
+        ''' Get full details of the tracks of a playlist owned by a user.
+
+            Parameters:
+                - user - the id of the user
+                - playlist_id - the id of the playlist
+                - fields - which fields to return
+                - limit - the maximum number of tracks to return
+                - offset - the index of the first track to return
+                - market - an ISO 3166-1 alpha-2 country code.
+        '''
+        plid = self.sp._get_id('playlist', playlist_id)
+        return self.sp._get("playlists/%s/tracks" % (plid),
+                         limit=limit, offset=offset, fields=fields,
+                         market=market)
 
     def get_playlist_features(self, playlist):
-        tracks = [x['track'] for x in self.sp.user_playlist_tracks(playlist,limit=30)['items']]
+        tracks = [x['track'] for x in self.user_playlist_tracks(playlist,limit=30)['items']]
         track_ids = [x['id'] for x in tracks]
         track_features = self.get_track_list_features(track_ids)
         return track_features
