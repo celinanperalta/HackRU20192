@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session, request
+from flask import Flask, redirect, url_for, session, request, render_template
 from flask_oauthlib.client import OAuth, OAuthException
 from config import *
 from SpotifyController import SpotifyController
