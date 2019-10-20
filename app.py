@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectMultipleField
 from wtforms.widgets import ListWidget, CheckboxInput
 from config import *
-from SpotifyController import SpotifyController
+from SpotifyController import SpotifyController, RANGES, USER_FEATURES
 
 app = Flask(__name__)
 
@@ -32,17 +32,8 @@ spotify = oauth.remote_app(
     authorize_url='https://accounts.spotify.com/authorize'
 )
 
-USER_FEATURES = ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']
-FEATURES = [(x,x) for x in ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo']]
-RANGES = {
-    'danceability' : 1,
-    'loudness' : 60,
-    'speechiness' : 1,
-    'acousticness' : 1,
-    'instrumentalness' : 1,
-    'energy' : 1,
-    'tempo' : 225
-}
+
+FEATURES = [(x,x) for x in ['danceability', 'loudness', 'speechiness', 'acousticness','instrumentalness', 'energy','tempo', "valence"]]
 
 
 class MultiCheckboxField(SelectMultipleField):
@@ -93,6 +84,7 @@ def update_playlists():
 
         playlists = spc.get_api().user_playlists(form.username.data, 10, 0)
         filters = form.features.data
+
         playlist_names = [x['name'] for x in playlists['items']]
         playlist_ids = [x['id'] for x in playlists['items']]
         playlist_urls = [x['external_urls']['spotify'] for x in playlists['items']]
@@ -102,7 +94,7 @@ def update_playlists():
         urls = {}
 
         for i in range(0, len(playlist_features)):
-            scores[playlist_names[i]] = score(spc.avg_features, playlist_features[i], filters)
+            scores[playlist_names[i]] = spc.score(playlist_ids[i], playlist_features[i], filters)
             urls[playlist_names[i]] = playlist_urls[i]
 
         scores = dict(sorted(scores.items(), key = lambda kv:(kv[1], kv[0]), reverse=True))
@@ -124,11 +116,11 @@ def update_playlists():
     return jsonify(data=form.errors)
 
 
-def score(avg_features, playlist_features, filters):
-    s = 0
-    for filter in filters:
-        s += (1-(abs(avg_features[filter]-playlist_features[filter]))/RANGES[filter])*100/len(filters)
-    return s
+# def score(avg_features, playlist_features, filters):
+#     s = 0
+#     for filter in filters:
+#         s += (1-(abs(avg_features[filter]-playlist_features[filter]))/RANGES[filter])*100/len(filters)
+#     return s
 
 @spotify.tokengetter
 def get_spotify_oauth_token():

@@ -7,9 +7,9 @@
       <change afterPath="$PROJECT_DIR$/../HackRU2019/config.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Inspirpy/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpotifyController.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotifyController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/spotimatch.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/spotimatch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +81,7 @@
           <entry key="css" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="3" />
-          <entry key="py" value="7" />
+          <entry key="py" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -89,7 +89,7 @@
           <entry key="CSS" value="1" />
           <entry key="HTML" value="3" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="7" />
+          <entry key="Python" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -97,50 +97,61 @@
           <entry key="css" value="6" />
           <entry key="dummy" value="22" />
           <entry key="gitignore" value="8" />
-          <entry key="html" value="527" />
-          <entry key="py" value="4938" />
+          <entry key="html" value="529" />
+          <entry key="py" value="6541" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="527" />
+          <entry key="HTML" value="529" />
           <entry key="PLAIN_TEXT" value="30" />
-          <entry key="Python" value="4938" />
+          <entry key="Python" value="6541" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="85" column="172" selection-start-line="85" selection-start-column="172" selection-end-line="85" selection-end-column="172" />
+            <state relative-caret-position="65">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
-                <marker date="1571587917116" expanded="true" signature="4265:4267" ph="..." />
+                <marker date="1571594079303" expanded="true" signature="4032:4034" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SpotifyController.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+                <marker date="1571594729149" expanded="true" signature="579:585" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="1268:1274" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="1269:1270" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="1315:1321" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="1353:1354" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="1854:2278" ph="..." />
+                <marker date="1571594729149" expanded="true" signature="2409:2710" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SpotifyController.py">
+        <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-174">
-              <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+            <state relative-caret-position="193">
+              <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
-                <marker date="1571585205164" expanded="true" signature="124:126" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="124:132" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="815:821" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="816:817" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="862:868" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="900:901" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="1400:1813" ph="..." />
-                <marker date="1571585205164" expanded="true" signature="1944:2245" ph="..." />
+                <element signature="e#0#77#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,7 +160,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-467">
+            <state relative-caret-position="-444">
               <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
             </state>
           </provider>
@@ -158,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/spotimatch.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="27" selection-start-line="27" selection-end-line="28" />
+            <state relative-caret-position="600">
+              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -211,13 +222,13 @@
         <option value="$PROJECT_DIR$/templates/playlists.html" />
         <option value="/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/spotipy/client.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/SpotifyController.py" />
         <option value="$PROJECT_DIR$/static/css/main.css" />
         <option value="$PROJECT_DIR$/templates/spotimatch.html" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/SpotifyController.py" />
       </list>
     </option>
   </component>
@@ -502,7 +513,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1845238" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24107143" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -612,9 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -622,55 +630,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-444">
+          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/spotimatch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+        <state relative-caret-position="193">
+          <caret line="63" column="40" lean-forward="true" selection-start-line="63" selection-start-column="40" selection-end-line="63" selection-end-column="40" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/main.css">
+    <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-467">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+        <state relative-caret-position="65">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <marker date="1571594079303" expanded="true" signature="4032:4034" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SpotifyController.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+        <state relative-caret-position="358">
+          <caret line="184" lean-forward="true" selection-start-line="184" selection-end-line="184" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1571585205164" expanded="true" signature="124:126" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="124:132" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="815:821" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="816:817" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="862:868" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="900:901" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="1400:1813" ph="..." />
-            <marker date="1571585205164" expanded="true" signature="1944:2245" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/spotimatch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="27" selection-start-line="27" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="85" column="172" selection-start-line="85" selection-start-column="172" selection-end-line="85" selection-end-column="172" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <marker date="1571587917116" expanded="true" signature="4265:4267" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="579:585" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="1268:1274" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="1269:1270" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="1315:1321" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="1353:1354" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="1854:2278" ph="..." />
+            <marker date="1571594729149" expanded="true" signature="2409:2710" ph="..." />
           </folding>
         </state>
       </provider>

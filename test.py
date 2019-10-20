@@ -63,8 +63,8 @@ def spotify_authorized():
 def spotimatch():
     # print(spc.get_currently_playing())
     # print(spc.get_top_artists())
-    print(spc.get_current_user_music_profile())
-    return render_template('spotimatch.html')
+    print(spc.get_playlist_genres("37i9dQZF1DX0ZgPbUQ205W"))
+    return "yeet"
 
 
 @spotify.tokengetter
